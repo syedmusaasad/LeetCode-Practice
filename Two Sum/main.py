@@ -8,7 +8,6 @@ class Solution(object):
         
         dicts = {}
         for i in range(len(nums)):
-            dicts[nums[i]] = i
-        for i in range(len(nums)):
             if ((target - nums[i]) in dicts) and i != dicts[target - nums[i]]:
                 return [i, dicts[target - nums[i]]]
+            dicts[nums[i]] = i
