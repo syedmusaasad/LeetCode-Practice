@@ -6,10 +6,9 @@ class Solution(object):
         :rtype: List[int]
         """ 
         
+        dicts = {}
         for i in range(len(nums)):
-            try:
-                potential = nums.index(target - nums[i])
-                if (isinstance(nums[potential], int) and i != nums.index(target - nums[i])):
-                    return [i, nums.index(target - nums[i])]
-            except ValueError:
-                continue
+            dicts[nums[i]] = 0
+        for i in range(len(nums)):
+            if ((target - nums[i]) in dicts) and i != nums.index(target - nums[i]):
+                return [i, nums.index(target - nums[i])]
